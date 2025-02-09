@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль ученика</title>
+  <link type="text/css" rel="stylesheet" href="static/styles/main.css" />
+</head>
+
+<body>
+  <div class="pig">
+
+    <div class="profile">
+      <div class="profile-info">
+        <img src="https://vse-footbolki.ru/image/catalog/vsm/0/2/2909/2909725/previews/people_1_pad_front_white_700.jpg"
+          alt="Profile Picture" />
+        <h3>Иванов Иван Иванович</h3>
+      </div>
+      <div class="profile-buttons">
+
+        <button onclick="document.getElementById('id01').style.display='block'">
+          Привязка карты
+        </button>
+
+
+        <div id="id01" class="modal">
+
+
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="zov">
+              <form>
+                <div class="card-number">
+                  <label>Номер карты</label>
+                  <input required type="text" id="card-number" name="card-number" inputmode="numeric"
+                    autcomplete="cc-number" pattern="[0-9]+" />
+                  <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Закрыть модальный">&times;</span>
+                </div>
+                <div class="date-code">
+                  <div>
+                    <label for="expiry-date">Срок действия</label>
+                    <input required type="text" id="expiry-date" name="expiry-date" class="expiry-date"
+                      autocomplete="cc-exp" placeholder="ММ/ГГ" minlength="4" pattern="[0-9/]+" />
+                  </div>
+                  <div>
+                    <label for="security-code">CVV</label>
+                    <input required type="text" id="security-code" name="security-code" inputmode="numeric"
+                      minlength="3" maxlength="4" pattern="[0-9]+" />
+                  </div>
+                </div>
+                <button>Привязать</button>
+              </form>
+            </div>
+          </form>
+        </div>
+        <button onclick="window.location.href='index2.html'">
+          Узнать успеваемость
+        </button>
+        <button onclick="window.location.href='index2.html'">
+          Настройки выплат
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="grades-container">
+    <ul class="grades-list">
+      <li class="grade-item">
+        <span class="dat">22.02 Пятница</span>
+
+      </li>
+      <li class="grade-item">
+        <span class="subject">Математика</span>
+        <span class="grade-square">5</span>
+      </li>
+      <li class="grade-item">
+        <span class="subject">История</span>
+        <span class="grade-square">4</span>
+      </li>
+      <li class="grade-item">
+        <span class="subject">Физика</span>
+        <span class="grade-square">3</span>
+      </li>
+
+      <li class="grade-item">
+        <span class="subject">Русский язык</span>
+        <span class="grade-square">5</span>
+      </li>
+      <li class="grade-item">
+        <span class="dat">21.02 Четверг</span>
+
+      </li>
+      <li class="grade-item">
+        <span class="subject">Литература</span>
+        <span class="grade-square">5</span>
+      </li>
+      <li class="grade-item">
+        <span class="subject">Информатика</span>
+        <span class="grade-square">4</span>
+      </li>
+      <li class="grade-item">
+        <span class="subject">Химия</span>
+        <span class="grade-square">5</span>
+      </li>
+      <li class="grade-item">
+        <span class="subject">Биология</span>
+        <span class="grade-square">4</span>
+      </li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
