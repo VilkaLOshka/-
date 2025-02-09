@@ -1,0 +1,42 @@
+body {
+    background-image: url(https://i.pinimg.com/originals/3e/d5/44/3ed544bc72fa2b049cadc246c171770d.jpg);
+    background-size: cover;
+    color: #e9f7ef;
+  }
+.container { 
+    background-color: #b96fc094; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    width: 300px; 
+    
+
+} 
+ 
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+input {
+    padding: 12px;
+    border: 2px solid #6c757d;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+button {
+    background-color: #785cc5;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+  
+button:hover {
+    background-color: rgba(77, 15, 223, 0.5);
+    transform: scale(1.05);
+}
