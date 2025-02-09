@@ -1,0 +1,294 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid #995499;
+  padding: 20px;
+  background-color: #b96fc094;
+  color: #e9f7ef;
+  border-radius: 25px;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  width: 50%;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Модальный (фон) */
+.modal {
+  display: none;
+  /* Скрыто по умолчанию */
+  position: fixed;
+  /* Оставаться на месте */
+  z-index: 1;
+  /* Сидеть на вершине */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Полная ширина */
+  height: 100%;
+  /* Полный рост */
+  overflow: auto;
+  /* Включите прокрутку, если это необходимо */
+  background-color: rgb(0, 0, 0);
+  /* Цвет запасной вариант */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Черный с непрозрачностью */
+  padding-top: 60px;
+
+}
+
+/* Модальное Содержание/коробка */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto;
+  /* 15% сверху и по центру */
+  border: 1px solid #888;
+  width: 80%;
+  /* Может быть больше или меньше, в зависимости от размера экрана */
+  border-radius: 15px;
+  position: relative;
+
+}
+
+.card-number {
+  background-color: #edd4ed;
+  border: 1px solid #e9c6f0;
+  padding: 10px;
+  border-radius: 12px;
+
+}
+
+.date-code {
+  display: flex;
+  margin: 0 -1em;
+
+}
+
+.close {
+  /* Расположите его в правом верхнем углу за пределами модели */
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #6b4343;
+  font-size: 35px;
+  font-weight: bold;
+
+}
+
+/* Кнопка закрытия при наведении курсора мыши */
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Добавить анимация масштабирования */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0)
+  }
+
+  to {
+    -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+form {
+  width: 90vw;
+  max-width: 20em;
+}
+
+
+
+input {
+  border: 1px solid;
+  padding: 0.3 rem;
+  width: 75%;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+
+
+.date-code div {
+  margin: 0 1em;
+}
+
+body {
+  background-image: url(https://i.pinimg.com/originals/3e/d5/44/3ed544bc72fa2b049cadc246c171770d.jpg);
+  background-size: cover;
+}
+
+
+.wrapper {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2d6a4f;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #3c3c3c;
+  font-size: 1.1em;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #6c757d;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #9852c7;
+  box-shadow: 0 0 5px rgba(177, 57, 207, 0.5);
+  outline: none;
+}
+
+
+
+.date-code {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+input[type="text"] {
+  width: calc(50% - 5px);
+}
+
+button {
+  background-color: #785cc5;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: rgba(77, 15, 223, 0.5);
+  transform: scale(1.05);
+}
+
+.grades-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid #995499;
+
+  background-color: #b96fc094;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #e9f7ef;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.grades-list {
+  list-style: none;
+  padding: 0;
+  margin: 00;
+  width: 10000px;
+  /* Измените ширину по вашему желанию */
+}
+
+.grade-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.grade-item:last-child {
+  border-bottom: none;
+}
+
+.subject {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.dat {
+  margin-right: 25px;
+  padding: 10px;
+  color: #701ac094;
+
+}
+
+.grade-square {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #785cc5;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
