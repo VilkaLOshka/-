@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/style1.css">
+  </head>
+<body>
+    <form action="action_page.php" method="post">
+      <div class="imgcontainer">
+        <img
+          src="https://www.schoolsw3.com/howto/img_avatar2.png"
+          alt="Аватар"
+          class="avatar"
+        />
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Пользователь</b></label>
+        <input type="text" placeholder="Введите имя" name="uname" required />
+
+        <label for="psw"><b>Пароль</b></label>
+        <input
+          type="password"
+          placeholder="Введите пароль"
+          name="psw"
+          required
+        />
+
+        <button type="submit">Вход</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" /> Запомнить
+          меня
+        </label>
+      </div>
+
+      <div class="container" style="background-color: #f1f1f1">
+        <button type="button" class="cancelbtn">Отменить</button>
+        <span class="psw">Забыли <a href="#">пароль?</a></span>
+      </div>
+    </form>
+  </body>
+</html>
