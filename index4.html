@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ru">  <!-- Добавили lang для SEO -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Слайд с кнопками</title>
+  <link rel="stylesheet" href="static/styles/style4.css">  <!-- Убрали лишний type="text/css" -->
+</head>
+
+<body>
+  <div class="slide">
+    <h1>МУП</h1>
+    <h2>Монетизация Учебного процесса</h2>
+
+    <button id="openModal" class="button">Вход</button>  <!--  Используем ID для более эффективного управления -->
+
+    <div id="modal" class="modal">  <!-- Более семантичное имя -->
+      <span class="close" title="Закрыть модальное окно">&times;</span> <!-- Убрали лишний javascript inline -->
+
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+          <img src="https://www.schoolsw3.com/howto/img_avatar2.png" alt="Аватар" class="avatar">
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Пользователь</b></label>
+          <input type="text" id="uname" placeholder="Введите имя" name="uname" required>  <!-- Добавили id для input -->
+
+          <label for="psw"><b>Пароль</b></label>
+          <input type="password" id="psw" placeholder="Введите пароль" name="psw" required>  <!-- Добавили id для input -->
+
+          <button type="submit">Вход</button>
+          <label>
+            <input type="checkbox" name="remember" checked>  <!-- Убрали лишнее checked="checked" -->
+            Запомнить меня
+          </label>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1">
+          <button type="button" class="cancelbtn" data-close="modal">Отменить</button> <!-- data-close для JS -->
+          <span class="psw">Забыли <a href="#">пароль?</a></span>
+        </div>
+      </form>
+    </div>
+    <a href="index3.html" class="button">Регистрация</a>
+  </div>
+
+  <script>
+    const openModalButton = document.getElementById('openModal');
+    const modal = document.getElementById('modal');
+    const closeButtons = document.querySelectorAll('.close, button[data-close="modal"]');
+
+    openModalButton.addEventListener('click', () => {
+      modal.style.display = 'block';
+    });
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+
+</html>
