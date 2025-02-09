@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Настройка выплат за оценки</title>
+    <link rel="stylesheet" href="static/styles/dengidavai.css" 
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Настройка выплат за оценки</h1>
+        <form id="paymentForm">
+            <label for="grade2">Оценка 2:</label>
+            <input type="number" id="grade2" name="grade2" value="0">
+    
+            <label for="grade3">Оценка 3:</label>
+            <input type="number" id="grade3" name="grade3" value="0">
+    
+            <label for="grade4">Оценка 4:</label>
+            <input type="number" id="grade4" name="grade4" value="0">
+    
+            <label for="grade5">Оценка 5:</label>
+            <input type="number" id="grade5" name="grade5" value="0">
+    
+            <button type="button" onclick="savePaymentSettings()">ОК</button>
+        </form>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
