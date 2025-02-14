@@ -1,24 +1,20 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Профиль ученика</title>
-  <link type="text/css" rel="stylesheet" href="static/styles/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/main.css">
 </head>
-
 <body>
   <div class="pig">
 
     <div class="profile">
-      <div class="profile-info">
-        <img src="https://vse-footbolki.ru/image/catalog/vsm/0/2/2909/2909725/previews/people_1_pad_front_white_700.jpg"
-          alt="Profile Picture" />
-        <h3>Иванов Иван Иванович</h3>
-      </div>
+
+
+    <h1>Профиль пользователя: {{ username }}</h1>
+    <p>Добро пожаловать в ваш профиль!</p>
+    <a href="{{ url_for('login') }}">Выйти</a>
       <div class="profile-buttons">
 
         <button onclick="document.getElementById('id01').style.display='block'">
