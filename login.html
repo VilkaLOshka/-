@@ -1,35 +1,37 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
     <link type="text/css" rel="stylesheet" href="static/styles/login.css">
-  </head>
+    <style>
+      .hidden {
+          display: none;
+      }
+  </style>
+</head>
 <body>
-    <form action="action_page.php" method="post">
-      
+  <div class="container">
 
-      <div class="container">
-        <label for="uname"><b>Пользователь</b></label>
-        <input type="text" placeholder="Введите имя" name="uname" required />
-
-        <label for="psw"><b>Пароль</b></label>
-        <input
-          type="password"
-          placeholder="Введите пароль"
-          name="psw"
-          required
-        />
-
-        <button type="submit">Вход</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" /> Запомнить
-          меня
-        </label>
-        <span class="psw">Забыли <a href="#">пароль?</a></span>
-      </div>
+    <h1>Вход</h1>
+    <div class="hidden">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">{{ message }}</div>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </div>
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Войти</button>
     </form>
-  </body>
+    <p>Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрируйтесь</a>.</p>
+  </div>
+</body>
 </html>
