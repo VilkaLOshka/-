@@ -1,44 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link type="text/css" rel="stylesheet" href="static/styles/style1.css">
-  </head>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link type="text/css" rel="stylesheet" href="static/styles/style2.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
 <body>
-    <form action="action_page.php" method="post">
-      <div class="imgcontainer">
-        <img
-          src="https://www.schoolsw3.com/howto/img_avatar2.png"
-          alt="Аватар"
-          class="avatar"
-        />
-      </div>
-
-      <div class="container">
-        <label for="uname"><b>Пользователь</b></label>
-        <input type="text" placeholder="Введите имя" name="uname" required />
-
-        <label for="psw"><b>Пароль</b></label>
-        <input
-          type="password"
-          placeholder="Введите пароль"
-          name="psw"
-          required
-        />
-
-        <button type="submit">Вход</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember" /> Запомнить
-          меня
-        </label>
-      </div>
-
-      <div class="container" style="background-color: #f1f1f1">
-        <button type="button" class="cancelbtn">Отменить</button>
-        <span class="psw">Забыли <a href="#">пароль?</a></span>
-      </div>
+    <h1>Регистрация</h1>
+    <div class="hidden">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <form method="POST" action="{{ url_for('register') }}">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="confirm_password">Повторите пароль:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+        <button type="submit">Зарегистрироваться</button>
     </form>
-  </body>
+    <p>Уже есть аккаунт? <a href="{{ url_for('login') }}">Войдите</a>.</p>
+</body>
 </html>
