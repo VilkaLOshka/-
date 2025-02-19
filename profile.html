@@ -3,110 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль</title>
+    <title>Профиль - {{ username }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
 </head>
 <body>
-  <div class="pig">
+    <div class="container">
+        <h1>Профиль пользователя: {{ username }}</h1>
+        <p>Добро пожаловать в ваш профиль!</p>
 
-    <div class="profile">
+        <a href="{{ url_for('login') }}" class="exit-button">Выйти</a>
 
+        <button id="openModal" class="button">Привязать карту</button>
 
-    <h1>Профиль пользователя: {{ username }}</h1>
-    <p>Добро пожаловать в ваш профиль!</p>
-    <a href="{{ url_for('login') }}">Выйти</a>
-      <div class="profile-buttons">
+        <a href="{{ url_for('dengidavai') }}" class="button">Настройки выплат</a>
 
-        <button onclick="document.getElementById('id01').style.display='block'">
-          Привязка карты
-        </button>
+        <a href="{{ url_for('index2') }}" class="button">Узнать успеваемость</a>
 
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Привязка карты</h2>
+                <form id="cardForm">
+                    <label for="card_number">Номер карты:</label>
+                    <input type="text" id="card_number" name="card_number" required>
 
-        <div id="id01" class="modal">
+                    <label for="card_holder">Имя владельца:</label>
+                    <input type="text" id="card_holder" name="card_holder" required>
 
+                    <label for="expiry_date">Срок действия:</label>
+                    <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
 
-          <form class="modal-content animate" action="/action_page.php">
-            <div class="zov">
-              <form>
-                <div class="card-number">
-                  <label>Номер карты</label>
-                  <input required type="text" id="card-number" name="card-number" inputmode="numeric"
-                    autcomplete="cc-number" pattern="[0-9]+" />
-                  <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Закрыть модальный">&times;</span>
-                </div>
-                <div class="date-code">
-                  <div>
-                    <label for="expiry-date">Срок действия</label>
-                    <input required type="text" id="expiry-date" name="expiry-date" class="expiry-date"
-                      autocomplete="cc-exp" placeholder="ММ/ГГ" minlength="4" pattern="[0-9/]+" />
-                  </div>
-                  <div>
-                    <label for="security-code">CVV</label>
-                    <input required type="text" id="security-code" name="security-code" inputmode="numeric"
-                      minlength="3" maxlength="4" pattern="[0-9]+" />
-                  </div>
-                </div>
-                <button>Привязать</button>
-              </form>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+
+                    <button type="submit">Сохранить</button>
+                </form>
             </div>
-          </form>
         </div>
-        <button onclick="window.location.href='index2.html'">
-          Узнать успеваемость
-        </button>
-        <button onclick="window.location.href='dengidavai.html'">
-          Настройки выплат
-        </button>
-      </div>
+
+        <div class="grades-container">
+            <ul class="grades-list">
+                <li class="grade-item">
+                    <span class="dat">22.02 Пятница</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Математика</span>
+                    <span class="grade-square">5</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">История</span>
+                    <span class="grade-square">4</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Физика</span>
+                    <span class="grade-square">3</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Русский язык</span>
+                    <span class="grade-square">5</span>
+                </li>
+                <li class="grade-item">
+                    <span class="dat">21.02 Четверг</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Литература</span>
+                    <span class="grade-square">5</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Информатика</span>
+                    <span class="grade-square">4</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Химия</span>
+                    <span class="grade-square">5</span>
+                </li>
+                <li class="grade-item">
+                    <span class="subject">Биология</span>
+                    <span class="grade-square">4</span>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <div class="grades-container">
-    <ul class="grades-list">
-      <li class="grade-item">
-        <span class="dat">22.02 Пятница</span>
 
-      </li>
-      <li class="grade-item">
-        <span class="subject">Математика</span>
-        <span class="grade-square">5</span>
-      </li>
-      <li class="grade-item">
-        <span class="subject">История</span>
-        <span class="grade-square">4</span>
-      </li>
-      <li class="grade-item">
-        <span class="subject">Физика</span>
-        <span class="grade-square">3</span>
-      </li>
+    <script>
+        const openModalButton = document.getElementById('openModal');
+        const modal = document.getElementById('modal');
+        const closeModalButton = document.querySelector('.close');
 
-      <li class="grade-item">
-        <span class="subject">Русский язык</span>
-        <span class="grade-square">5</span>
-      </li>
-      <li class="grade-item">
-        <span class="dat">21.02 Четверг</span>
+        openModalButton.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
 
-      </li>
-      <li class="grade-item">
-        <span class="subject">Литература</span>
-        <span class="grade-square">5</span>
-      </li>
-      <li class="grade-item">
-        <span class="subject">Информатика</span>
-        <span class="grade-square">4</span>
-      </li>
-      <li class="grade-item">
-        <span class="subject">Химия</span>
-        <span class="grade-square">5</span>
-      </li>
-      <li class="grade-item">
-        <span class="subject">Биология</span>
-        <span class="grade-square">4</span>
-      </li>
-    </ul>
-  </div>
+        closeModalButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
 
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        const cardForm = document.getElementById('cardForm');
+        cardForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = {
+                card_number: document.getElementById('card_number').value,
+                card_holder: document.getElementById('card_holder').value,
+                expiry_date: document.getElementById('expiry_date').value,
+                cvv: document.getElementById('cvv').value,
+            };
+
+            const response = await fetch('/save_card', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert('Данные успешно сохранены!');
+                modal.style.display = 'none';
+            } else {
+                alert(result.message);
+            }
+        });
+    </script>
 </body>
-
 </html>
