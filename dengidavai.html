@@ -1,36 +1,57 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Настройка выплат за оценки</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dengidavai.css') }}">
 </head>
-
 <body>
-
+    <div class="profile-buttons">
+        <button class="profile-button" onclick="window.location.href='{{ url_for('profile', username=username) }}'">
+            <img src="https://vse-footbolki.ru/image/catalog/vsm/0/2/2909/2909725/previews/people_1_pad_front_white_700.jpg" alt="Вернуться в профиль" style="width: 35px; height: 35px;">
+        </button>
+    </div>
     <div class="container">
         <h1>Настройка выплат за оценки</h1>
         <form id="paymentForm">
             <label for="grade2">Оценка 2:</label>
-            <input type="number" id="grade2" name="grade2" value="0">
-    
+            <input type="number" id="grade2" name="grade2" value="0" />
+
             <label for="grade3">Оценка 3:</label>
-            <input type="number" id="grade3" name="grade3" value="0">
-    
+            <input type="number" id="grade3" name="grade3" value="0" />
+
             <label for="grade4">Оценка 4:</label>
-            <input type="number" id="grade4" name="grade4" value="0">
-    
+            <input type="number" id="grade4" name="grade4" value="0" />
+
             <label for="grade5">Оценка 5:</label>
-            <input type="number" id="grade5" name="grade5" value="0">
-    
+            <input type="number" id="grade5" name="grade5" value="0" />
+
             <button type="button" onclick="savePaymentSettings()">ОК</button>
         </form>
     </div>
 
     <div id="message"></div>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+        function savePaymentSettings() {
+            const grade2 = document.getElementById('grade2').value;
+            const grade3 = document.getElementById('grade3').value;
+            const grade4 = document.getElementById('grade4').value;
+            const grade5 = document.getElementById('grade5').value;
 
+            fetch('/save_payment_settings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ grade2, grade3, grade4, grade5 }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            });
+        }
+    </script>
+</body>
 </html>
